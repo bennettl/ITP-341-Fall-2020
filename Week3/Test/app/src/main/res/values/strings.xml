@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyTest</string>
+
+    <string name="main_label">ITP 341 - Android Dev</string>
+
+    <string name="counter_label">The counter is: %d</string>
+    <string name="toast_label">You clicked on me!</string>
+</resources>
