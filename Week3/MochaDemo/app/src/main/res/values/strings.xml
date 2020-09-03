@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MochaDemo</string>
+    <string name="label_main">Professor Mocha is adorable</string>
+</resources>
