@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/sectionMargin"
+        android:layout_marginBottom="@dimen/sectionMargin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_name"
+            android:textSize="@dimen/sectionTitleSize"/>
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter your name"
+            android:backgroundTint="#74B8ED"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleTopping"
+        app:layout_constraintTop_toBottomOf="@id/nameLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_toppings"
+        android:layout_marginTop="@dimen/sectionMargin"
+        android:textSize="@dimen/sectionTitleSize"
+        />
+    <LinearLayout
+        android:id="@+id/toppingLayout"
+        app:layout_constraintTop_toBottomOf="@id/titleTopping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sectionMargin"
+        >
+        <CheckBox
+            android:id="@+id/checkboxPepperoni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/topping_pepperoni" />
+        <CheckBox
+            android:id="@+id/checkboxPineapple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/topping_pineapple" />
+        <CheckBox
+            android:id="@+id/checkboxTofu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/topping_tofu" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/titleSize"
+        app:layout_constraintTop_toBottomOf="@id/toppingLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_size"
+        android:textSize="@dimen/sectionTitleSize"
+        />
+    <RadioGroup
+        android:id="@+id/radioGroupSize"
+        app:layout_constraintTop_toBottomOf="@id/titleSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/sectionMargin">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size_small" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size_medium" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/size_large" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/layoutSpecials"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sectionMargin"
+        android:layout_marginBottom="@dimen/sectionMargin"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_specials"
+            android:textSize="@dimen/sectionTitleSize" />
+        <Spinner
+            android:id="@+id/spinnerSpecials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/free_specials"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutNumberOfPizzas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutSpecials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/sectionMargin"
+        android:layout_marginBottom="@dimen/sectionMargin"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_number_of_pizzas"
+            android:textSize="@dimen/sectionTitleSize" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <SeekBar
+                android:id="@+id/seekBarNumberOfPizzas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:min="1"
+                android:max="5"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/textViewNumberOfPizzas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/orderSummary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNumberOfPizzas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/sectionMargin"
+        android:layout_marginTop="@dimen/sectionMargin"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_order_summary"
+            android:textSize="@dimen/sectionTitleSize" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"/>
+        <TextView
+            android:id="@+id/textViewOrderSummary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Order for vikram..." />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

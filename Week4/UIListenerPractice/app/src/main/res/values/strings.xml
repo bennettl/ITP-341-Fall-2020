@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">UIListenerPractice</string>
+
+    <string name="label_name">Name</string>
+    <string name="label_toppings">Toppings</string>
+    <string name="label_size">Size</string>
+    <string name="label_specials">Free Specials</string>
+    <string name="label_number_of_pizzas">Number of Pizzas</string>
+    <string name="label_order_summary">Order Summary</string>
+
+    <string name="topping_pepperoni">pepperoni</string>
+    <string name="topping_pineapple">pineapple</string>
+    <string name="topping_tofu">tofu</string>
+
+    <string name="size_small">small</string>
+    <string name="size_medium">medium</string>
+    <string name="size_large">large</string>
+
+    <string-array name="free_specials">
+        <item>Chicken Wings</item>
+        <item>Coke</item>
+        <item>Sprite</item>
+    </string-array>
+
+
+</resources>
