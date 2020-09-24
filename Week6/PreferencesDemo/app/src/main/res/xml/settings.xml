@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="versionNumber"
+        android:title="Version Number"
+        android:summary="1.2.10"
+        android:defaultValue="1.2.10" />
+
+    <CheckBoxPreference
+        android:key="nodeMode"
+        android:title="Night Mode"
+        android:summary="Turn on / off night mode" />
+
+    <SwitchPreference
+        android:key="airplaneMode"
+        android:title="Airplane Mode"
+        android:summary="Turn on / off airplane mode" />
+
+</PreferenceScreen>
