@@ -1,0 +1,116 @@
+package itp341.lee.coffeeshop;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.List;
+
+import itp341.lee.coffeeshop.model.CoffeeShop;
+import itp341.lee.coffeeshop.model.CoffeeShopSingleton;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button buttonAdd;
+
+    private ListView listView;
+
+//    private ArrayAdapter<CoffeeShop> arrayAdapter;
+
+    private CoffeeAdapter coffeeAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        buttonAdd = findViewById(R.id.button_add);
+
+        listView = findViewById(R.id.listView);
+
+        final List<CoffeeShop> coffeeShops = CoffeeShopSingleton.get(this).getCoffeeShops();
+
+        // Access coffee shop list and load it in the list
+//        arrayAdapter = new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                coffeeShops
+//        );
+//        listView.setAdapter(arrayAdapter);
+
+        coffeeAdapter = new CoffeeAdapter(this, coffeeShops);
+        listView.setAdapter(coffeeAdapter);
+
+        // Handle when user clicks add button
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        // Handle when user clicks on list view
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra(DetailActivity.EXTRA_POSITION, position);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        coffeeAdapter.notifyDataSetChanged();
+    }
+
+
+    // Custom adapter used for custom layouts
+    private class CoffeeAdapter extends ArrayAdapter<CoffeeShop>{
+        private List<CoffeeShop> coffeeShops;
+
+        public CoffeeAdapter(Context context, List<CoffeeShop> coffeeShops){
+            super(context, R.layout.coffeeshop_row, coffeeShops);
+            this.coffeeShops = coffeeShops;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            // 1. We have a convertview we can work with
+            if (convertView == null){
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.coffeeshop_row, parent, false);
+            }
+
+            // 2. Get the data for given position
+            final CoffeeShop coffeeShop = coffeeShops.get(position);
+
+            // 3. Update our convert view with data from model
+            final TextView textViewTitle = convertView.findViewById(R.id.textViewTitle);
+            final TextView textViewSubtitle = convertView.findViewById(R.id.textViewSubtitle);
+
+            textViewTitle.setText(coffeeShop.getName());
+            textViewSubtitle.setText(coffeeShop.getCity());
+
+            // 4. Return the end result
+            return convertView;
+        }
+    }
+}
