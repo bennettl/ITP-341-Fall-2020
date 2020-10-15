@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/GridLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:columnCount="2"
+    android:orientation="horizontal"
+    android:rowCount="9"
+    android:useDefaultMargins="true" >
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_name"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="6"
+        android:inputType="textCapWords"
+        android:maxLines="1"
+        >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/text_drink"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_phone"
+        android:textStyle="bold" />
+e
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_gravity="left"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="10"
+        android:inputType="phone"
+        android:maxLength="14"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/text_thoughts"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_website"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_website"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="6"
+        android:inputType="textUri"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/text_address"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_address"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_address"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="6"
+        android:inputType="textCapWords"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/text_city"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_city"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_city"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="6"
+        android:inputType="textCapWords"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/text_zip"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_zip"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_zip"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="5"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/text_state"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="@string/label_state"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner_state"
+        android:layout_gravity="top"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_delete"
+        android:id="@+id/button_delete_listing"
+        android:layout_column="0"
+        android:layout_row="8" />
+
+    <Button
+        android:id="@+id/button_save_listing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_row="8"
+        android:text="@string/label_save" />
+
+</GridLayout>
