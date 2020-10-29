@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blueFragment">
+
+    <fragment
+        android:id="@+id/blueFragment"
+        android:name="itp341.lee.navdemo.BlueFragment"
+        android:label="fragment_blue"
+        tools:layout="@layout/fragment_blue" >
+        <action
+            android:id="@+id/action_blueFragment_to_redFragment"
+            app:destination="@id/redFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/redFragment"
+        android:name="itp341.lee.navdemo.RedFragment"
+        android:label="fragment_red"
+        tools:layout="@layout/fragment_red">
+        <argument android:name="userId" app:argType="integer" />
+    </fragment>
+
+</navigation>
